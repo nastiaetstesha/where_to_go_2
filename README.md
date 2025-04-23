@@ -45,8 +45,8 @@ ALLOWED_HOSTS=steshaet0steshaet.pythonanywhere.com,127.0.0.1,localhost
 # Установка и запуск
 ## Клонируйте репозиторий
 ```
-git clone https://github.com/your_username/your_repo.git
-cd your_repo
+git clone https://github.com/nastiaetstesha/where_to_go_2.git
+cd where_to_go_2
 ```
 ## Создайте и активируйте виртуальное окружение
 
