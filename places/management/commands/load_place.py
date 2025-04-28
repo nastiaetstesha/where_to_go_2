@@ -15,16 +15,16 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         response = requests.get(options['json_url'])
         response.raise_for_status()
-        data = response.json()
+        raw_place = response.json()
 
-        title = data['title']
+        title = raw_place['title']
         place, created = Place.objects.get_or_create(
             title=title,
             defaults={
-                'short_description': data['short_description'],
-                'long_description': data['long_description'],
-                'latitude': data['coordinates']['lat'],
-                'longitude': data['coordinates']['lng']
+                'short_description': raw_place['short_description'],
+                'long_description': raw_place['long_description'],
+                'latitude': raw_place['coordinates']['lat'],
+                'longitude': raw_place['coordinates']['lng']
             }
         )
 
@@ -37,7 +37,7 @@ class Command(BaseCommand):
                 self.style.SUCCESS(f'Добавлено новое место: {title}')
                 )
 
-        for img_url in data['imgs']:
+        for img_url in raw_place['imgs']:
             img_response = requests.get(img_url)
             img_response.raise_for_status()
 
