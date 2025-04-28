@@ -34,8 +34,8 @@ ALLOWED_HOSTS=steshaet0steshaet.pythonanywhere.com,127.0.0.1,localhost
     "https://raw.githubusercontent.com/devmanorg/where-to-go-places/master/media/35cbdddf2799337d8b571d141edec616.JPG",
     "https://raw.githubusercontent.com/devmanorg/where-to-go-places/master/media/9fec510ebb52aaa4667c4b9fa2b6222.JPG"
   ],
-  "description_short": "«Бункер 703» — музей современной фортификации...",
-  "description_long": "<p>Туристы и жители столицы, случайные прохожие и зеваки...</p>",
+  "short_description": "«Бункер 703» — музей современной фортификации...",
+  "long_description": "<p>Туристы и жители столицы, случайные прохожие и зеваки...</p>",
   "coordinates": {
     "lng": "37.6303209999998",
     "lat": "55.7343690000001"

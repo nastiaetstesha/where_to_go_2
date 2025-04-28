@@ -21,8 +21,8 @@ class Command(BaseCommand):
         place, created = Place.objects.get_or_create(
             title=title,
             defaults={
-                'description_short': data['description_short'],
-                'description_long': data['description_long'],
+                'short_description': data['short_description'],
+                'long_description': data['long_description'],
                 'latitude': data['coordinates']['lat'],
                 'longitude': data['coordinates']['lng']
             }
