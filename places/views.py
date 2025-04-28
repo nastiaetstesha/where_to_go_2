@@ -41,19 +41,19 @@ def places_geojson(request):
 
     for place in places:
         features.append({
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [place.longitude, place.latitude], 
+            'type': 'Feature',
+            'geometry': {
+                'type': 'Point',
+                'coordinates': [place.longitude, place.latitude], 
             },
-            "properties": {
-                "title": place.title,
-                "placeId": place.id,
-                "detailsUrl": reverse('place_detail', args=[place.id])
+            'properties': {
+                'title': place.title,
+                'placeId': place.id,
+                'detailsUrl': reverse('place_detail', args=[place.id])
             }
         })
 
     return JsonResponse({
-        "type": "FeatureCollection",
-        "features": features
+        'type': 'FeatureCollection',
+        'features': features
     })

@@ -27,12 +27,12 @@ class Command(BaseCommand):
             place, created = Place.objects.get_or_create(
                 title=title,
                 defaults={
-                    'short_description': raw_place['description_short'],
-                    'long_description': raw_place['long_description'],
-                    'latitude': raw_place['coordinates']['lat'],
-                    'longitude': raw_place['coordinates']['lng']
+                    'short_description': raw_place.get('description_short', ''),
+                    'long_description': raw_place.get('description_long', ''),
+                    'latitude': float(raw_place['coordinates']['lat']),
+                    'longitude': float(raw_place['coordinates']['lng']),
                 }
-            )
+)
         except MultipleObjectsReturned:
             self.stdout.write(
                 self.style.ERROR(f'Найдено несколько мест с названием: {title}')

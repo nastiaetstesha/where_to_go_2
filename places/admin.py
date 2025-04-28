@@ -17,8 +17,8 @@ class PlaceImageInline(SortableInlineAdminMixin, admin.TabularInline):
                 '<img src="{}" style="max-height: 200px; max-width: 300px; width: auto;" />',
                 obj.image.url
                 )
-        return "Нет изображения"
-    preview.short_description = "Превью"
+        return 'Нет изображения'
+    preview.short_description = 'Превью'
 
 
 @admin.register(Place)
