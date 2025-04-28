@@ -14,7 +14,7 @@ class PlaceImageInline(SortableInlineAdminMixin, admin.TabularInline):
     def preview(self, obj):
         if obj.image:
             return format_html(
-                '<img src="{}" style="max-height: 200px;" />',
+                '<img src="{}" style="max-height: 200px; max-width: 300px; width: auto;" />',
                 obj.image.url
                 )
         return "Нет изображения"
@@ -30,3 +30,4 @@ class PlaceAdmin(SortableAdminBase, admin.ModelAdmin):
 @admin.register(PlaceImage)
 class PlaceImageAdmin(admin.ModelAdmin):
     list_display = ('place', 'order')
+    raw_id_fields = ('place',)

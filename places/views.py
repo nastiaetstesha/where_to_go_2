@@ -1,4 +1,4 @@
-from django.http import JsonResponse, Http404
+from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse 
 from .models import Place
@@ -9,7 +9,10 @@ def show_main_page(request):
 
 
 def place_detail(request, place_id):
-    place = get_object_or_404(Place, id=place_id)
+    place = get_object_or_404(
+        Place.objects.prefetch_related('images'),
+        id=place_id
+    )
     images = [image.image.url for image in place.images.all()]
 
     place_data = {
@@ -33,9 +36,10 @@ def place_detail(request, place_id):
 
 
 def places_geojson(request):
+    places = Place.objects.only('id', 'title', 'longitude', 'latitude')
     features = []
 
-    for place in Place.objects.all():
+    for place in places:
         features.append({
             "type": "Feature",
             "geometry": {
