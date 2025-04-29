@@ -14,7 +14,7 @@ class PlaceImageInline(SortableInlineAdminMixin, admin.TabularInline):
     def preview(self, obj):
         if obj.image:
             return format_html(
-                '<img src="{}" style="max-height: 200px; max-width: 300px; width: auto;" />',
+                '<img src="{}" style="max-height: 200px; max-width: 300px;" />',
                 obj.image.url
                 )
         return 'Нет изображения'
